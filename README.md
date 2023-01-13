@@ -3,4 +3,6 @@
 
 - These have all been tested on my system
 - Please read through the configuration of each theme to verify if any of my scripts or any dependencies are needed for theme to work correctly.
-![](./-/tree/main/polybar_1/config.png)
+
+## Polybar_1 screenshot
+![](polybar_1scrot.png)
