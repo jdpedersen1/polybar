@@ -1,0 +1,397 @@
+[colors]
+
+background                          = #000000
+background-alt                      = #aa4450
+background-alt2                     = #83a598
+background-alt3                     = #709050
+background-alt4                     = #2b2927
+background-alt5                     = #bda393
+background-alt6                     = #4a637c
+background-alt7                     = #d65d0e
+background-alt8                     = #478061
+foreground                          = #000000
+foreground-alt                      = #83a598
+foreground-alt2                     = #aa4450
+foreground-alt3                     = #709050
+foreground-alt4                     = #93d2b1
+foreground-alt5                     = #076678
+foreground-alt6                     = #a8a7a6
+foreground-alt7                     = #bdae93
+foreground-alt8                     = #10713c
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-herbst]
+
+width                               = 100%
+height                              = 20
+;offset-x                           =
+;offset-y                           =
+radius                              = 
+fixed-center                        = true
+
+background                          = ${colors.background}
+foreground                          = ${colors.foreground}
+
+line-size                           = 2
+line-color                          = ${colors.foreground}
+
+border-size                         = 0
+border-color                        = ${colors.foreground}
+
+padding-left                        = 0
+padding-right                       = 0
+
+module-margin-left                  = 1
+module-margin-right                 = 2
+
+font-0                              = Hermit:style=Bold:pixelsize=10;1
+font-1                              = unifont:fontformat=truetype:size=12:antialias=false;0
+font-2                              = siji:pixelsize=10;1
+font-3                              = Font Awesome:style=Regular:pixelsize=10;1
+font-4                              = Font Awesome:style=Solid:pixelsize=10;1
+font-5                              = Font Awesome:pixelsize=8;1
+font-6                              = Font Awesome:style=Regular:pixelsize=10;1
+font-7                              = RobotoMono:style=Bold:size=10
+font-8                              = Font Awesome:style=Solid:pixelsize=10;1
+
+modules-left                        = ewmh
+modules-center                      = xwindow 
+modules-right                       = pacman-updates eth pulseaudio battery wlan eth date mpd
+
+;tray-position                      =
+;tray-padding                       =
+;tray-background                    =
+
+scroll-up                           = bspwm-desknext
+scroll-down                         = bspwm-deskprev
+
+cursor-click                        = pointer
+cursor-scroll                       = ns-resize
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+pin-workspaces = true
+
+ws-icon-0 = 1
+ws-icon-1 = 2
+ws-icon-2 = 3
+ws-icon-3 = 4
+ws-icon-4 = 5
+ws-icon-5 = 6
+ws-icon-6 = 7
+ws-icon-7 = 8
+ws-icon-8 = 9
+ws-icon-default = " "
+
+
+format = <label-state> <label-mode>
+
+label-focused = ""
+label-focused-font = 9
+label-focused-background = ${colors.background}
+label-focused-underline= #6790eb
+label-focused-padding = 2
+label-focused-foreground = ${colors.foreground}
+
+label-occupied = ""
+label-occupied-font = 9
+label-occupied-padding = 2
+label-occupied-background = ${colors.background}
+
+label-urgent = %icon%
+label-urgent-padding = 2
+
+label-empty = ""
+label-empty-font = 9
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+label-empty-background = ${colors.background}
+label-monocle = "  "
+label-monocle-foreground = ${colors.foreground}
+label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = "  "
+label-fullscreen-foreground = ${colors.foreground}
+label-floating = "  "
+label-floating-foreground = ${colors.foreground}
+label-pseudotiled = "  "
+label-pseudotiled-foreground = ${colors.foreground}
+label-locked = "  "
+label-locked-foreground = ${colors.foreground}
+label-sticky = "  "
+label-sticky-foreground = ${colors.foreground}
+label-private =  "     "
+label-private-foreground = ${colors.foreground}
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 10
+;label-separator-foreground = #ffb52a
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/xwindow]
+type                                = internal/xwindow
+label                               = " %title:0:30:...% "
+label-foreground                    = ${colors.foreground-alt7}
+label-background                    = ${colors.foreground}
+format-prefix                       = "  "
+format-prefix-background            = ${colors.foreground-alt7}
+label-underline                     = ${colors.foreground-alt7}
+#lable-overline                      = ${colors.foreground-alt7} 
+
+[module/filesystem]
+type                                = internal/fs
+interval                            = 3600
+mount-0                             = /
+label-mounted                       = " %percentage_used%% "
+label-mounted-foreground            = ${colors.foreground-alt3}
+label-mounted-background            = ${colors.foreground}
+
+[module/mpd]
+type                                = internal/mpd
+format-online                       = <icon-prev> <icon-stop> <toggle> <icon-next>  <label-song>
+format-online-prefix                = "  "
+format-online-prefix-font           = 5
+format-online-prefix-background     = ${colors.foreground-alt8}
+format-online-prefix-foreground     = ${colors.foreground}
+format-online-underline             = ${colors.foreground-alt8}
+format-online-foreground            = ${colors.foreground-alt8}
+format-online-background            = ${colors.foreground}
+icon-prev                           =  "  " 
+icon-stop                           =  "  "
+icon-play                           =  "  " 
+icon-pause                          =  "  " 
+icon-next                           =  " " 
+label-song-maxlen                   = 25
+label-song-ellipsis                 = true
+label-song-background               = ${colors.foreground}
+label-song-foreground               = ${colors.foreground-alt8}
+
+[module/cpu]
+type                                = internal/cpu
+interval                            = 2
+format-prefix                       = " "
+format-prefix-foreground            = ${colors.foreground-alt}
+label                               = %percentage:2%%
+
+[module/memory]
+type                                = internal/memory
+interval                            = 2
+format-prefix                       = " "
+format-prefix-foreground            = ${colors.foreground-alt}
+label                               = %percentage_used%%
+
+[module/wlan]
+type                                = internal/network
+interface                           = wlo1
+interval                            = 3.0
+format-connected                    = <ramp-signal><label-connected>
+format-connected-underline          = ${colors.foreground-alt5}
+label-connected                     = " %essid% "
+label-connected-foreground          = ${colors.foreground-alt5}
+label-connected-background          = ${colors.foreground}
+format-disconnected                 =
+ramp-signal-font                    = 5
+ramp-signal-0                       = "  "
+ramp-signal-1                       = "  "
+ramp-signal-2                       = "  "
+ramp-signal-3                       = "  "
+ramp-signal-4                       = "  "
+ramp-signal-foreground              = ${colors.foreground}
+ramp-signal-background              = ${colors.foreground-alt5}
+
+[module/eth]
+type                                = internal/network
+interface                           = vmnet8
+interval                            = 3.0
+format-connected-prefix             = " "
+format-connected-prefix-foreground  = ${colors.foreground-alt}
+label-connected                     = %local_ip%
+
+[module/date]
+type                                = internal/date
+interval                            = 5
+date                                = " %Y-%m-%d"
+date-alt                            = " %Y-%m-%d"
+time                                = %I:%M
+time-alt                            = %H:%M:%S
+format-prefix                       = "  "
+format-prefix-foreground            = ${colors.foreground}
+format-prefix-background            = ${colors.foreground-alt6}
+format-prefix-font                  = 5
+label                               = "%date%  ( %time% ) "
+label-background                    = ${colors.foreground}
+label-foreground                    = ${colors.foreground-alt6}
+format-underline                    = ${colors.foreground-alt6}
+
+[module/pulseaudio]
+type                                = internal/pulseaudio
+sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                       = <label-volume>
+format-volume-underline             = ${colors.background-alt6}
+format-volume-prefix                = "  "
+format-volume-prefix-font           = 5
+format-volume-prefix-background     = ${colors.background-alt6}
+label-volume                        = " %percentage%% "
+label-volume-foreground             = ${colors.background-alt6}
+label-volume-background             = ${colors.foreground}
+format-muted-prefix                 = "    "
+format-muted-background             = ${colors.background-alt}
+format-muted-prefix-font            = 5
+label-muted                         = " mute "
+label-muted-foreground              = ${colors.background-alt}
+label-muted-background              = ${colors.foreground}
+label-muted-underline               = ${colors.background-alt}
+
+[module/battery]
+type                                = internal/battery
+battery                             = BAT0
+adapter                             = ADP1
+full-at                             = 98
+label-discharging-foreground        = ${colors.background-alt7}
+label-discharging-background        = ${colors.foreground}
+label-discharging-underline         = ${colors.background-alt7}
+label-charging-background           = ${colors.foreground}
+label-charging-foreground           = ${colors.foreground-alt3}
+label-charging-underline            = ${colors.foreground-alt3}
+label-full-background               = ${colors.foreground}
+label-full-foreground               = ${colors.foreground-alt3}
+label-full-underline                = ${colors.foreground-alt3}
+format-charging                     = <animation-charging><label-charging>
+format-full-background              = ${colors.foreground}
+format-discharging                  = <animation-discharging><label-discharging>
+format-full-prefix                  = "  "
+format-full-prefix-foreground       = ${colors.foreground}
+format-full-prefix-background       = ${colors.background-alt3}
+format-full-prefix-font             = 5
+
+ramp-capacity-0                     = "  " 
+ramp-capacity-1                     = "  "
+ramp-capacity-2                     = "  "
+ramp-capacity-3                     = "  "
+ramp-capacity-4                     = "  "
+ramp-capacity-foreground            = ${colors.foreground}
+ramp-capacity-font                  = 5
+animation-charging-0                = "  "  
+animation-charging-1                = "  "
+animation-charging-2                = "  "
+animation-charging-3                = "  "
+animation-charging-4                = "  "
+animation-charging-font             = 5
+animation-charging-foreground       = ${colors.foreground}
+animation-charging-background       = ${colors.background-alt3}
+animation-charging-framerate        = 750
+animation-discharging-4             = "  " 
+animation-discharging-3             = "  "
+animation-discharging-2             = "  "
+animation-discharging-1             = "  "
+animation-discharging-0             = "  "
+animation-discharging-foreground    = ${colors.foreground}
+animation-discharging-background    = ${colors.background-alt7}
+animation-discharging-font          = 5
+animation-discharging-framerate     = 750
+
+[settings]
+screenchange-reload                 = true
+;compositing-background             = xor
+;compositing-background             = screen
+;compositing-foreground             = source
+;compositing-border                 = over
+;pseudo-transparency                = false
+
+[global/wm]
+margin-top                          = 5
+margin-bottom                       = 5
+
+[module/ewmh]
+type                                = internal/xworkspaces
+pin-workspaces                      = false
+enable-click                        = true
+enable-scroll                       = true
+reverse-scroll                      = true
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+icon-0                              = 1;
+icon-1                              = 2;
+icon-2                              = 3;
+icon-3                              = 4;
+icon-4                              = 5;
+icon-5                              = 6;
+icon-6                              = 7;
+icon-7                              = 8;
+icon-8                              = 9;
+icon-default                        = " "
+format                              = <label-state>
+label-monitor                       = %name%
+
+label-active                        = %icon%
+label-active-background             = ${colors.background-alt8}
+label-active-foreground             = ${colors.foreground}
+label-active-padding                = 3
+label-active-font                   = 5
+label-active-underline              = ${colors.background-alt8}
+#label-active-overline               = ${colors.background-alt8}
+
+label-occupied                      = %icon% *
+label-occupied-underline            = ${colors.background-alt8}
+#label-occupied-overline             = ${colors.background-alt8}
+label-occupied-foreground           = ${colors.foreground-alt7}
+label-occupied-background           = ${colors.foreground}
+label-occupied-padding              = 3
+;label-occupied-font                = 5
+
+label-urgent                        = %icon%
+label-urgent-underline              = ${colors.background-alt8}
+label-urgent-foreground             = ${colors.foreground}
+label-urgent-background             = ${colors.background-alt8}
+label-urgent-padding                = 3
+
+label-empty                         = %icon%
+label-empty-underline               = ${colors.background-alt8}
+#label-empty-overline                = ${colors.background-alt8}
+label-empty-background              = ${colors.foreground}
+label-empty-foreground              = ${colors.background-alt8}
+label-empty-padding                 = 3
+;format-foreground                   = ${colors.foreground}
+;format-background                   = #477d8f
+
+[module/pacman-updates]
+type = custom/script
+;exec = pacman -Qu | wc -l
+exec = xbps-install -nuM | wc -l
+interval = 1000
+label = " Repo: %output% "
+label-foreground = ${colors.foreground-alt4}
+label-background = ${colors.foreground}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-background = ${colors.foreground-alt4}
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.foreground-alt4}
+#format-overline = ${colors.foreground-alt4}
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval                       = 5
+
+; vim:ft=dosini
