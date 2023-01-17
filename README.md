@@ -6,3 +6,8 @@
 
 ## Polybar_1 screenshot
 ![](polybar_1scrot.png)
+
+## Polybar_2 screenshot
+![](polybar_2scrot.png)
+
+
