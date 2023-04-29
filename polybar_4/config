@@ -1,0 +1,381 @@
+[colors]
+black                               = #000000
+subtle                              = #1e1e1e
+blue                                = #03597e
+white                               = #ffffff
+purple                              = #6d6dae                           
+red                                 = #df4949
+green                               = #5f875f
+teal                                = #53a4cc
+[bar/mainbar-center]
+
+width                               = 4.55%
+height                              = 16
+offset-x                            = 47.5%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=14;3
+font-1                              = Font Awesome:style=Solid:pixelsize=14;3
+font-2                              = FantasqueSansMono Nerd Font:pixelsize=10;2
+
+modules-center                      = logo logo1 logo2 logo3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[bar/mainbar-left]
+
+width                               = 22.4%
+height                              = 16
+offset-x                            = .5%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+font-0                              = Font Awesome:style=Regular:pixelsize=10;2
+font-1                              = Font Awesome:style=Solid:pixelsize=14;3
+
+modules-left                        = ewmh updicon
+
+cursor-click                        = pointer
+cursor-scroll                       = ns-resize
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-right]
+
+width                               = 10.5%
+height                              = 16
+offset-x                            = 89%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=10;2
+font-1                              = Font Awesome:style=Solid:pixelsize=10;2
+
+modules-center                      = date
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-right-1]
+
+width                               = 4.55%
+height                              = 16
+offset-x                            = 84%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=10;2
+font-1                              = Font Awesome:style=Solid:pixelsize=10;3
+
+modules-center                      = battery
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-right-3]
+
+width                               = 4.55%
+height                              = 16
+offset-x                            = 79%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+background                          = ${colors.teal}
+foreground                          = ${colors.subtle}
+
+border-size                         = 4
+border-color                        = #000000
+
+padding-left                        = 2
+padding-right                       = 2
+
+module-margin-left                  = 1
+module-margin-right                 = 2
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=10;2
+font-1                              = Font Awesome:style=Solid:pixelsize=10;3
+
+modules-center                      = ytube
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-right-2]
+
+width                               = 4.65%
+height                              = 16
+offset-x                            = 73.9%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+padding-left                        = 2
+padding-right                       = 2
+
+module-margin-left                  = 1
+module-margin-right                 = 2
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=10;2
+font-1                              = Font Awesome:style=Solid:pixelsize=10;3
+
+modules-center                      = pulseaudio
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mainbar-right-4]
+
+width                               = 4.65%
+height                              = 16
+offset-x                            = 23.5%
+offset-y                            = 5
+radius                              = 3
+fixed-center                        = true
+
+border-size                         = 4
+border-color                        = #1e1e1e
+
+padding-left                        = 2
+padding-right                       = 2
+
+module-margin-left                  = 1
+module-margin-right                 = 2
+
+font-0                              = FantasqueSansMono:style=Bold:pixelsize=10;1
+
+modules-center                      = tray
+ 
+tray-position                       = center
+tray-padding                        = 4
+tray-background                     = #000000
+tray-detatched                      = false
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/xwindow]
+type                                = internal/xwindow
+label                               = " %title:0:8:...% "
+label-foreground                    = ${colors.white}
+label-background                    = ${colors.black}
+format-prefix                       = "  "
+format-prefix-background            = ${colors.black}
+format-prefix-foreground            = ${colors.white}
+
+[module/date]
+type                                = internal/date
+interval                            = 5
+date                                = " %Y-%m-%d"
+date-alt                            = " %Y-%m-%d"
+time                                = %I:%M
+time-alt                            = %H:%M:%S
+format-prefix                       = "  "
+format-prefix-foreground            = ${colors.blue}
+format-prefix-background            = ${colors.black}
+prefix-font                         = 2
+label-font                          = 1
+label                               = "%date%  ( %time% ) "
+label-background                    = ${colors.black}
+label-foreground                    = ${colors.blue}
+
+[module/pulseaudio]
+type                                = internal/pulseaudio
+sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                       = <label-volume>
+format-volume-prefix                = "  "
+format-volume-prefix-font           = 1
+format-volume-prefix-background     = ${colors.black}
+label-volume                        = " %percentage%% "
+label-volume-foreground             = ${colors.white}
+label-volume-background             = ${colors.black}
+format-muted-prefix                 = "    "
+format-muted-background             = ${colors.black}
+format-muted-prefix-font            = 1
+label-muted                         = " mute "
+label-muted-foreground              = ${colors.white}
+label-muted-background              = ${colors.black}
+
+[module/battery]
+type                                = internal/battery
+battery                             = BAT0
+adapter                             = ADP1
+full-at                             = 98
+label-discharging-foreground        = ${colors.white}
+label-discharging-background        = ${colors.black}
+label-charging-background           = ${colors.black}
+label-charging-foreground           = ${colors.white}
+label-full-background               = ${colors.black}
+label-full-foreground               = ${colors.white}
+format-charging                     = <animation-charging><label-charging>
+format-font                         = 1
+format-full-background              = ${colors.black}
+format-discharging                  = <animation-discharging> <label-discharging>
+format-full-prefix                  = "  "
+format-full-prefix-foreground       = ${colors.white}
+format-full-prefix-background       = ${colors.black}
+format-full-prefix-font             = 1
+
+ramp-capacity-0                     = "  " 
+ramp-capacity-1                     = "  "
+ramp-capacity-2                     = "  "
+ramp-capacity-3                     = "  "
+ramp-capacity-4                     = "  "
+ramp-capacity-foreground            = ${colors.white}
+ramp-capacity-font                  = 1
+animation-charging-0                = "  "  
+animation-charging-1                = "  "
+animation-charging-2                = "  "
+animation-charging-3                = "  "
+animation-charging-4                = "  "
+animation-charging-font             = 1
+animation-charging-foreground       = ${colors.white}
+animation-charging-background       = ${colors.black}
+animation-charging-framerate        = 750
+animation-discharging-4             = "  " 
+animation-discharging-3             = "  "
+animation-discharging-2             = "  "
+animation-discharging-1             = "  "
+animation-discharging-0             = "  "
+animation-discharging-foreground    = ${colors.white}
+animation-discharging-background    = ${colors.black}
+animation-discharging-font          = 1
+animation-discharging-framerate     = 750
+
+[settings]
+screenchange-reload                 = true
+;compositing-background             = xor
+;compositing-background             = screen
+;compositing-foreground             = source
+;compositing-border                 = over
+;pseudo-transparency                = false
+
+[global/wm]
+margin-top                          = 5
+margin-bottom                       = 5
+
+[module/ewmh]
+type                                = internal/xworkspaces
+pin-workspaces                      = false
+enable-click                        = true
+enable-scroll                       = true
+reverse-scroll                      = true
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+icon-0                              = 1;
+icon-1                              = 2;
+icon-2                              = 3;
+icon-3                              = 4;
+icon-4                              = 5;
+icon-5                              = 6;
+icon-6                              = 7;
+icon-7                              = 8;
+icon-8                              = 9;
+icon-default                        = " "
+format                              = <label-state>
+label-monitor                       = %name%
+
+label-active                        = ""
+label-active-background             = ${colors.black}
+label-active-foreground             = ${colors.blue}
+label-active-padding                = 5
+label-active-font                   = 2
+
+label-occupied                      = ""
+label-occupied-foreground           = ${colors.teal}
+label-occupied-background           = ${colors.black}
+label-occupied-padding              = 5
+label-occupied-font                 = 2
+
+label-urgent                        = ""
+label-urgent-foreground             = ${colors.red}
+label-urgent-background             = ${colors.black}
+label-urgent-padding                = 5
+label-urgent-font                   = 2
+
+label-empty                         = ""
+label-empty-background              = ${colors.black}
+label-empty-foreground              = ${colors.white}
+label-empty-padding                 = 5
+label-empty-font                    = 1
+
+[module/ytube]
+type                                = custom/script
+exec                                = /home/jake/.local/scripts/ytsubs.sh
+interval                            = 3.0
+label-background                    = ${colors.teal}
+label-foreground                    = ${colors.black}
+label                               = " %output%"
+
+[module/logo]
+type                                = custom/text
+content-background                  = ${colors.black}
+content-foreground                  = ${colors.white}
+content                             = "V"
+content-font                        = 1
+
+[module/logo1]
+type                                = custom/text
+content-background                  = ${colors.black}
+content-foreground                  = ${colors.teal}
+content                             = " "
+content-font                        = 1
+
+[module/logo2]
+type                                = custom/text
+content-background                  = ${colors.black}
+content-foreground                  = ${colors.white}
+content                             = " I"
+content-font                        = 1
+
+[module/logo3]
+type                                = custom/text
+content-background                  = ${colors.black}
+content-foreground                  = ${colors.white}
+content                             = " D"
+content-font                        = 1
+
+[module/tray]
+type                                = custom/text
+content-background                  = ${colors.black}
+content-foreground                  = ${colors.black}
+content                             = "  "
+content-font                        = 1
+
+[module/updicon]
+type                                = custom/script
+exec                                = /home/jake/.config/herbstluftwm/updicon.sh
+tail                                = true
+interval                            = 10
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval                       = 5
+
+; vim:ft=dosini
