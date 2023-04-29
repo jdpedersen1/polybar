@@ -15,3 +15,5 @@
 
 ## Polybar_3 screenshot
 ![](polybar_3scrot.png)
+## Polybar_4 screenshot
+![](polybar_4scrot.png)
