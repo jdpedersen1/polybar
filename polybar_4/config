@@ -7,12 +7,14 @@ purple                              = #6d6dae
 red                                 = #df4949
 green                               = #5f875f
 teal                                = #53a4cc
+
+
 [bar/mainbar-center]
 
 width                               = 4.55%
 height                              = 16
 offset-x                            = 47.5%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -33,7 +35,7 @@ modules-center                      = logo logo1 logo2 logo3
 width                               = 22.4%
 height                              = 16
 offset-x                            = .5%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -55,7 +57,7 @@ cursor-scroll                       = ns-resize
 width                               = 10.5%
 height                              = 16
 offset-x                            = 89%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -74,7 +76,7 @@ modules-center                      = date
 width                               = 4.55%
 height                              = 16
 offset-x                            = 84%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -93,7 +95,7 @@ modules-center                      = battery
 width                               = 4.55%
 height                              = 16
 offset-x                            = 79%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -121,7 +123,7 @@ modules-center                      = ytube
 width                               = 4.65%
 height                              = 16
 offset-x                            = 73.9%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -146,7 +148,7 @@ modules-center                      = pulseaudio
 width                               = 4.65%
 height                              = 16
 offset-x                            = 23.5%
-offset-y                            = 5
+offset-y                            = 2
 radius                              = 3
 fixed-center                        = true
 
@@ -330,13 +332,13 @@ label                               = " %output%"
 type                                = custom/text
 content-background                  = ${colors.black}
 content-foreground                  = ${colors.white}
-content                             = "V"
+content                             = "-V"
 content-font                        = 1
 
 [module/logo1]
 type                                = custom/text
 content-background                  = ${colors.black}
-content-foreground                  = ${colors.teal}
+content-foreground                  = ${colors.purple}
 content                             = " "
 content-font                        = 1
 
@@ -351,7 +353,7 @@ content-font                        = 1
 type                                = custom/text
 content-background                  = ${colors.black}
 content-foreground                  = ${colors.white}
-content                             = " D"
+content                             = " D-"
 content-font                        = 1
 
 [module/tray]

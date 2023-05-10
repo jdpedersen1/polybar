@@ -1,0 +1,219 @@
+[colors]
+black = #000000
+white = #ffffff
+Dgreen = #274a37
+Lgreen = #667466
+red = #800000
+clear = #00000000
+
+[bar/greenbar]
+width = 99.5%
+height  = 20
+offset-x = 5
+offset-y = 5
+radius = 0
+fixed-center = true
+tray-position = left
+tray-padding = 4
+tray-offset-x = 190
+tray-background = ${colors.clear}
+tray-detached = true
+bottom = false
+module-margin-right = 1
+module-margin-left = 0
+padding-left = 0
+padding-right = 0
+background = ${colors.clear}
+
+border-size = 0
+border-color = 
+
+font-0 = FantasqueSansMono:style=Bold:pixelsize=14;3
+font-1 = Font Awesome:style=Solid:pixelsize=14;3
+font-2 = FantasqueSansMono Nerd Font:pixelsize=10;2
+
+modules-left = ytube pulseaudio tray updicon
+modules-right = battery date
+modules-center = ewmh
+
+[settings]
+screenchange-reload                 = true
+;compositing-background             = xor
+;compositing-background             = screen
+;compositing-foreground             = source
+;compositing-border                 = over
+;pseudo-transparency                = false
+
+[global/wm]
+margin-top                          = 5
+margin-bottom                       = 5
+
+[module/date]
+type                                = internal/date
+interval                            = 5
+date                                = " %Y-%m-%d"
+date-alt                            = " %Y-%m-%d"
+time                                = %I:%M
+time-alt                            = %H:%M:%S
+format-suffix                       = "  "
+format-suffix-foreground            = ${colors.Dgreen}
+format-suffix-background            = ${colors.black}
+prefix-font                         = 2
+label-font                          = 1
+label                               = "%date%  ( %time% ) "
+label-background                    = ${colors.Dgreen}
+label-foreground                    = ${colors.black}
+
+[module/pulseaudio]
+type                                = internal/pulseaudio
+sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                       = <label-volume>
+format-volume-prefix                = "  "
+format-volume-prefix-font           = 1
+format-volume-prefix-background     = ${colors.black}
+format-volume-prefix-foreground     = ${colors.Lgreen}
+label-volume                        = " %percentage% "
+label-volume-foreground             = ${colors.black}
+label-volume-background             = ${colors.Lgreen}
+format-muted-prefix                 = "    "
+format-muted-background             = ${colors.Lgreen}
+format-muted-prefix-font            = 1
+label-muted                         = " mute "
+label-muted-foreground              = ${colors.black}
+label-muted-background              = ${colors.Lgreen}
+
+[module/battery]
+type                                = internal/battery
+battery                             = BAT0
+adapter                             = ADP1
+full-at                             = 98
+label-charging                      = " %percentage%% "
+label-discharging                   = " %percentage%% "
+label-discharging-foreground        = ${colors.black}
+label-discharging-background        = ${colors.Lgreen}
+label-charging-background           = ${colors.Lgreen}
+label-charging-foreground           = ${colors.black}
+label-full-background               = ${colors.Lgreen}
+label-full-foreground               = ${colors.black}
+format-charging                     = <label-charging><animation-charging>
+format-font                         = 1
+format-full-background              = ${colors.Lgreen}
+format-discharging                  = <label-discharging><animation-discharging>
+format-full-prefix                  = " "
+format-full-prefix-foreground       = ${colors.black}
+format-full-prefix-background       = ${colors.Lgreen}
+format-full-prefix-font             = 1
+
+ramp-capacity-0                     = "  " 
+ramp-capacity-1                     = "  "
+ramp-capacity-2                     = "  "
+ramp-capacity-3                     = "  "
+ramp-capacity-4                     = "  "
+ramp-capacity-foreground            = ${colors.Lgreen}
+ramp-capacity-font                  = 1
+animation-charging-0                = "  "  
+animation-charging-1                = "  "
+animation-charging-2                = "  "
+animation-charging-3                = "  "
+animation-charging-4                = "  "
+animation-charging-font             = 1
+animation-charging-foreground       = ${colors.Lgreen}
+animation-charging-background       = ${colors.black}
+animation-charging-framerate        = 750
+animation-discharging-4             = "  " 
+animation-discharging-3             = "  "
+animation-discharging-2             = "  "
+animation-discharging-1             = "  "
+animation-discharging-0             = "  "
+animation-discharging-foreground    = ${colors.Lgreen}
+animation-discharging-background    = ${colors.black}
+animation-discharging-font          = 1
+animation-discharging-framerate     = 750
+
+[module/ewmh]
+type                                = internal/xworkspaces
+pin-workspaces                      = false
+enable-click                        = true
+enable-scroll                       = true
+reverse-scroll                      = true
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+icon-0                              = 1;
+icon-1                              = 2;
+icon-2                              = 3;
+icon-3                              = 4;
+icon-4                              = 5;
+icon-5                              = 6;
+icon-6                              = 7;
+icon-7                              = 8;
+icon-8                              = 9;
+icon-default                        = " "
+format                              = <label-state>
+label-monitor                       = %name%
+
+label-active                        = ""
+label-active-background             = ${colors.clear}
+label-active-foreground             = ${colors.Dgreen}
+label-active-padding                = 2
+label-active-font                   = 2
+
+label-occupied                      = ""
+label-occupied-foreground           = ${colors.Lgreen}
+label-occupied-background           = ${colors.clear}
+label-occupied-padding              = 2
+label-occupied-font                 = 2
+
+label-urgent                        = ""
+label-urgent-foreground             = ${colors.red}
+label-urgent-background             = ${colors.clear}
+label-urgent-padding                = 2
+label-urgent-font                   = 2
+
+label-empty                         = ""
+label-empty-background              = ${colors.clear}
+label-empty-foreground              = ${colors.black}
+label-empty-padding                 = 2
+label-empty-font                    = 1
+
+[module/ytube]
+type                                = custom/script
+exec                                = /home/jake/.local/scripts/ytsubs.sh
+interval                            = 3.0
+label-background                    = ${colors.Dgreen}
+label-foreground                    = ${colors.black}
+prefix-font                         = 2
+format-prefix                       = "  "
+format-prefix-foreground            = ${colors.Dgreen}
+format-prefix-background            = ${colors.black} 
+label                               = " %output%"
+
+[module/tray]
+type                                = custom/text
+content-background                  = ${colors.clear}
+content-foreground                  = ${colors.black}
+content                             = "  "
+content-font                        = 1
+
+[module/updicon]
+type                                = custom/script
+exec                                = /home/jake/.config/herbstluftwm/updicon.sh
+tail                                = true
+interval                            = 10
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval                       = 5
+
+; vim:ft=dosini
+
+
