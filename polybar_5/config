@@ -1,14 +1,17 @@
 [colors]
 black = #000000
 white = #ffffff
+grey = #afafaf
 Dgreen = #274a37
 Lgreen = #667466
-red = #800000
+red = #a62b2b
 clear = #00000000
+Dblue = #285e94
+blue = #5f87af
 
 [bar/greenbar]
 width = 99.5%
-height  = 20
+height  = 22
 offset-x = 5
 offset-y = 5
 radius = 0
@@ -24,15 +27,15 @@ module-margin-left = 0
 padding-left = 0
 padding-right = 0
 background = ${colors.clear}
-
+line-size = 2
 border-size = 0
 border-color = 
 
-font-0 = FantasqueSansMono:style=Bold:pixelsize=14;3
-font-1 = Font Awesome:style=Solid:pixelsize=14;3
-font-2 = FantasqueSansMono Nerd Font:pixelsize=10;2
+font-0 = DejaVu:style=Bold:pixelsize=10;1
+font-1 = FontAwesome:style=Solid:pixelsize=18;3
+font-2 = FantasqueSansMonoNerdFont:pixelsize=10;2
 
-modules-left = ytube pulseaudio tray updicon
+modules-left = ytube pulseaudio tray
 modules-right = battery date
 modules-center = ewmh
 
@@ -56,31 +59,35 @@ date-alt                            = " %Y-%m-%d"
 time                                = %I:%M
 time-alt                            = %H:%M:%S
 format-suffix                       = "  "
-format-suffix-foreground            = ${colors.Dgreen}
-format-suffix-background            = ${colors.black}
+format-suffix-foreground            = ${colors.black}
+format-suffix-background            = ${colors.Dblue}
 prefix-font                         = 2
 label-font                          = 1
 label                               = "%date%  ( %time% ) "
-label-background                    = ${colors.Dgreen}
-label-foreground                    = ${colors.black}
+label-background                    = ${colors.black}
+label-foreground                    = ${colors.grey}
+label-underline                     = ${colors.Dblue}
 
 [module/pulseaudio]
 type                                = internal/pulseaudio
 sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
 format-volume                       = <label-volume>
 format-volume-prefix                = "  "
+label-volume-underline             = ${colors.blue}
 format-volume-prefix-font           = 1
-format-volume-prefix-background     = ${colors.black}
-format-volume-prefix-foreground     = ${colors.Lgreen}
+format-volume-prefix-background     = ${colors.blue}
+format-volume-prefix-foreground     = ${colors.black}
 label-volume                        = " %percentage% "
-label-volume-foreground             = ${colors.black}
-label-volume-background             = ${colors.Lgreen}
-format-muted-prefix                 = "    "
-format-muted-background             = ${colors.Lgreen}
+label-volume-foreground             = ${colors.grey}
+label-volume-background             = ${colors.black}
+format-muted-prefix                 = "  " 
+format-muted-background             = ${colors.blue}
+format-muted-foreground             = ${colors.red}
 format-muted-prefix-font            = 1
-label-muted                         = " mute "
-label-muted-foreground              = ${colors.black}
-label-muted-background              = ${colors.Lgreen}
+label-muted                         = "  X  "
+label-muted-foreground              = ${colors.red}
+label-muted-background              = ${colors.black}
+label-muted-underline               = ${colors.blue}
 
 [module/battery]
 type                                = internal/battery
@@ -88,28 +95,32 @@ battery                             = BAT0
 adapter                             = ADP1
 full-at                             = 98
 label-charging                      = " %percentage%% "
+label-charging-underline            = ${colors.blue}
 label-discharging                   = " %percentage%% "
-label-discharging-foreground        = ${colors.black}
-label-discharging-background        = ${colors.Lgreen}
-label-charging-background           = ${colors.Lgreen}
-label-charging-foreground           = ${colors.black}
-label-full-background               = ${colors.Lgreen}
-label-full-foreground               = ${colors.black}
+label-discharging-underline         = ${colors.blue}
+label-full                          = " %percentage%% "
+label-full-underline                = ${colors.blue}
+label-discharging-foreground        = ${colors.grey}
+label-discharging-background        = ${colors.black}
+label-charging-background           = ${colors.black}
+label-charging-foreground           = ${colors.grey}
+label-full-background               = ${colors.black}
+label-full-foreground               = ${colors.grey}
 format-charging                     = <label-charging><animation-charging>
 format-font                         = 1
-format-full-background              = ${colors.Lgreen}
+format-full-background              = ${colors.black}
 format-discharging                  = <label-discharging><animation-discharging>
-format-full-prefix                  = " "
-format-full-prefix-foreground       = ${colors.black}
-format-full-prefix-background       = ${colors.Lgreen}
-format-full-prefix-font             = 1
+format-full-suffix                  = "  "
+format-full-suffix-foreground       = ${colors.black}
+format-full-suffix-background       = ${colors.blue}
+format-full-suffix-font             = 1
 
 ramp-capacity-0                     = "  " 
 ramp-capacity-1                     = "  "
 ramp-capacity-2                     = "  "
 ramp-capacity-3                     = "  "
 ramp-capacity-4                     = "  "
-ramp-capacity-foreground            = ${colors.Lgreen}
+ramp-capacity-foreground            = ${colors.blue}
 ramp-capacity-font                  = 1
 animation-charging-0                = "  "  
 animation-charging-1                = "  "
@@ -117,16 +128,16 @@ animation-charging-2                = "  "
 animation-charging-3                = "  "
 animation-charging-4                = "  "
 animation-charging-font             = 1
-animation-charging-foreground       = ${colors.Lgreen}
-animation-charging-background       = ${colors.black}
+animation-charging-foreground       = ${colors.black}
+animation-charging-background       = ${colors.blue}
 animation-charging-framerate        = 750
 animation-discharging-4             = "  " 
 animation-discharging-3             = "  "
 animation-discharging-2             = "  "
 animation-discharging-1             = "  "
 animation-discharging-0             = "  "
-animation-discharging-foreground    = ${colors.Lgreen}
-animation-discharging-background    = ${colors.black}
+animation-discharging-foreground    = ${colors.black}
+animation-discharging-background    = ${colors.blue}
 animation-discharging-font          = 1
 animation-discharging-framerate     = 750
 
@@ -156,12 +167,12 @@ label-monitor                       = %name%
 
 label-active                        = ""
 label-active-background             = ${colors.clear}
-label-active-foreground             = ${colors.Dgreen}
+label-active-foreground             = ${colors.black}
 label-active-padding                = 2
 label-active-font                   = 2
 
 label-occupied                      = ""
-label-occupied-foreground           = ${colors.Lgreen}
+label-occupied-foreground           = ${colors.blue}
 label-occupied-background           = ${colors.clear}
 label-occupied-padding              = 2
 label-occupied-font                 = 2
@@ -182,13 +193,14 @@ label-empty-font                    = 1
 type                                = custom/script
 exec                                = /home/jake/.local/scripts/ytsubs.sh
 interval                            = 3.0
-label-background                    = ${colors.Dgreen}
-label-foreground                    = ${colors.black}
+label-background                    = ${colors.black}
+label-foreground                    = ${colors.grey}
 prefix-font                         = 2
 format-prefix                       = "  "
-format-prefix-foreground            = ${colors.Dgreen}
-format-prefix-background            = ${colors.black} 
+format-prefix-foreground            = ${colors.black}
+format-prefix-background            = ${colors.Dblue} 
 label                               = " %output%"
+label-underline                     = ${colors.Dblue}
 
 [module/tray]
 type                                = custom/text
@@ -199,7 +211,7 @@ content-font                        = 1
 
 [module/updicon]
 type                                = custom/script
-exec                                = /home/jake/.config/herbstluftwm/updicon.sh
+exec                                = /home/jake/.local/scripts/updicon.sh
 tail                                = true
 interval                            = 10
 
