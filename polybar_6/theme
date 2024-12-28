@@ -1,0 +1,25 @@
+[sepia]
+
+background                       = #060a0b
+background-alt-1                 = #5b5249
+background-alt                   = #4b443e
+foreground                       = #dadad1
+secondary                        = #417070
+
+
+[dark]
+
+background                       = #060a0b
+background-alt                   = #969696
+foreground                       = #dadad1
+secondary                        = #487caf
+
+
+[light]
+
+background                       = #060a0b
+background-alt                   = #6c7e82
+foreground                       = #dadad1
+secondary                        = #e2d0ab
+
+

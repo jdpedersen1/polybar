@@ -1,0 +1,205 @@
+
+include-file = ~/.config/polybar/polybar_6/theme
+
+[bar/main]
+ 
+width                            = 99.25%
+height                           = 32
+offset-x                         = 10
+offset-y                         = 10
+radius                           = 0
+fixed-center                     = true
+
+
+background                       = ${sepia.background-alt}
+foreground                       = ${sepia.foreground}
+
+border-bottom-size               = 3
+border-right-size                = 5
+border-left-size                 = 5
+border-bottom-color              = ${sepia.background}
+border-left-color                = ${sepia.background}
+border-right-color               = ${sepia.background}
+border-radius                    = 0
+
+line-size                        = 4
+
+padding-left                     = 0
+padding-right                    = 0
+
+module-margin-left               = 0
+module-margin-right              = 0
+ 
+font-0                           = RecMonoLinearNerdFont:pixelsize=14;5
+font-1                           = FontAwesome:style=Solid:pixelsize=18;3
+
+modules-left                     = menu ewmh
+modules-center                   = tray
+modules-right                    = ytube mic pulseaudio battery date menu2
+
+[module/tray]
+type                             = internal/tray
+tray-background                  = ${sepia.background-alt}
+tray-size                        = 75%
+tray-spacing                     = 7px
+
+[module/ytube]
+type                             = custom/script
+exec                             = /home/jake/.local/scripts/ytsubs.sh
+interval                         = 3.0
+background                       = ${sepia.accent}
+foreground                       = ${sepia.black}
+format-prefix                    = "  "
+prefix-font                      = 1
+format-prefix-foreground         = ${sepia.background}
+label-font                       = 0
+label                            = %output%
+
+[module/date]
+type                             = internal/date
+interval                         = 5
+date                             = " %Y-%m-%d"
+date-alt                         = " %Y-%m-%d"
+time                             = %I:%M
+time-alt                         = %H:%M:%S
+format-prefix                    = "   "
+format-prefix-foreground         = ${sepia.background}
+format-prefix-background         = ${sepia.background-alt}
+prefix-font                      = 1
+label-font                       = 0
+label                            = "%date%  ( %time% ) "
+label-background                 = ${sepia.background-alt}
+label-foreground                 = ${sepia.foreground}
+
+[module/menu]
+type                             = custom/text
+label-background                 = ${sepia.background}
+label-foreground                 = ${sepia.secondary}
+label                            = " |  "
+label-font                       = 1
+click-left                       = /home/jake/.local/scripts/menu
+
+[module/menu2]
+type                             = custom/text
+label-background                 = ${sepia.background}
+label-foreground                 = ${sepia.secondary}
+label                            = "    "
+label-font                       = 0
+
+[module/ewmh]
+type                             = internal/xworkspaces
+pin-workspaces                   = false
+enable-click                     = false
+enable-scroll                    = false
+reverse-scroll                   = false
+
+icon-0                           = 1;
+icon-1                           = 2;
+icon-2                           = 3;
+icon-3                           = 4;
+icon-4                           = 5;
+icon-5                           = 6;
+icon-6                           = 7;
+icon-7                           = 8;
+icon-8                           = 9;
+icon-default                     = " "
+format                           = <label-state>
+label-monitor                    = %name%
+
+label-active                     = "   "
+label-active-background          = ${sepia.background-alt}
+label-active-foreground          = ${sepia.background}
+label-active-padding             = 0
+label-active-font                = 0
+
+label-occupied                   = "   "
+label-occupied-foreground        = ${sepia.background}
+label-occupied-background        = ${sepia.background-alt}
+label-occupied-padding           = 0
+label-occupied-font              = 0
+
+label-urgent                     = "   "
+label-urgent-foreground          = ${sepia.foreground}
+label-urgent-background          = ${sepia.background-alt}
+label-urgent-padding             = 0
+label-urgent-font                = 0
+
+label-empty                      = "   "
+label-empty-background           = ${sepia.background-alt}
+label-empty-foreground           = ${sepia.foreground}
+label-empty-padding              = 0
+label-empty-font                 = 0
+
+[module/battery]
+type                             = internal/battery
+battery                          = BAT0
+adapter                          = ADP1
+full-at                          = 98
+label-discharging-foreground     = ${sepia.foreground}
+label-discharging-background     = ${sepia.background-alt}
+label-charging-background        = ${sepia.background-alt}
+label-charging-foreground        = ${sepia.foreground}
+label-full-background            = ${sepia.background-alt}
+label-full-foreground            = ${sepia.foreground}
+format-charging                  = <animation-charging> <label-charging>
+format-font                      = 1
+format-full-background           = ${sepia.background-alt}
+format-discharging               = <animation-discharging> <label-discharging>
+format-full-prefix               = "  "
+format-full-prefix-foreground    = ${sepia.background}
+format-full-prefix-background    = ${sepia.background-alt}
+format-full-prefix-font          = 1
+
+ramp-capacity-0                  = "  " 
+ramp-capacity-1                  = "  "
+ramp-capacity-2                  = "  "
+ramp-capacity-3                  = "  "
+ramp-capacity-4                  = "  "
+ramp-capacity-foreground         = ${sepia.white}
+ramp-capacity-font               = 1
+animation-charging-0             = "  "  
+animation-charging-1             = "  "
+animation-charging-2             = "  "
+animation-charging-3             = "  "
+animation-charging-4             = "  "
+animation-charging-font          = 1
+animation-charging-foreground    = ${sepia.background}
+animation-charging-background    = ${sepia.background-alt}
+animation-charging-framerate     = 750
+animation-discharging-4          = "  " 
+animation-discharging-3          = "  "
+animation-discharging-2          = "  "
+animation-discharging-1          = "  "
+animation-discharging-0          = "  "
+animation-discharging-foreground = ${sepia.background}
+animation-discharging-background = ${sepia.background-alt}
+animation-discharging-font       = 1
+animation-discharging-framerate  = 750
+
+[module/pulseaudio]
+type                             = internal/pulseaudio
+sink                             = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                    = <label-volume>
+format-volume-prefix             = "   "
+format-volume-prefix-font        = 1
+format-volume-prefix-background  = ${sepia.background-alt}
+format-volume-prefix-foreground  = ${sepia.background}
+label-volume                     = " %percentage%% "
+label-volume-foreground          = ${sepia.foreground}
+label-volume-background          = ${sepia.background-alt}
+format-muted-prefix              = "  x "
+format-muted-background          = ${sepia.background-alt}
+format-muted-foreground          = ${sepia.background}
+format-muted-prefix-font         = 1
+label-muted                      = "--  "
+label-muted-foreground           = ${sepia.foreground}
+label-muted-background           = ${sepia.background-alt}
+
+[module/mic]
+type                             = custom/script
+exec                             = pactl get-source-volume 1 | awk -F " " '{print $5}'
+interval                         = 1
+format-prefix                    = "  "
+format-prefix-foreground         = ${sepia.background}
+click-left                       = pactl set-source-mute 1 toggle
+

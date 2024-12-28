@@ -14,7 +14,11 @@ width = 99.5%
 height  = 22
 offset-x = 5
 offset-y = 5
+<<<<<<< HEAD
 radius = 0
+=======
+radius = 10
+>>>>>>> master
 fixed-center = true
 tray-position = left
 tray-padding = 4
@@ -31,11 +35,19 @@ line-size = 2
 border-size = 0
 border-color = 
 
+<<<<<<< HEAD
 font-0 = DejaVu:style=Bold:pixelsize=10;1
 font-1 = FontAwesome:style=Solid:pixelsize=18;3
 font-2 = FantasqueSansMonoNerdFont:pixelsize=10;2
 
 modules-left = ytube pulseaudio tray
+=======
+font-0 = FantasqueSansMono:style=Bold:pixelsize=14;1
+font-1 = Font Awesome:style=Solid:pixelsize=14;3
+font-2 = FantasqueSansMono Nerd Font:pixelsize=10;2
+
+modules-left = ytube pulseaudio tray updicon
+>>>>>>> master
 modules-right = battery date
 modules-center = ewmh
 
@@ -211,7 +223,11 @@ content-font                        = 1
 
 [module/updicon]
 type                                = custom/script
+<<<<<<< HEAD
 exec                                = /home/jake/.local/scripts/updicon.sh
+=======
+exec                                = /home/jake/.config/herbstluftwm/updicon.sh
+>>>>>>> master
 tail                                = true
 interval                            = 10
 

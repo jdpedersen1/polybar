@@ -332,14 +332,22 @@ label                               = " %output%"
 type                                = custom/text
 content-background                  = ${colors.black}
 content-foreground                  = ${colors.white}
+<<<<<<< HEAD
 content                             = "-V"
+=======
+content                             = "-V "
+>>>>>>> master
 content-font                        = 1
 
 [module/logo1]
 type                                = custom/text
 content-background                  = ${colors.black}
 content-foreground                  = ${colors.purple}
+<<<<<<< HEAD
 content                             = " "
+=======
+content                             = ""
+>>>>>>> master
 content-font                        = 1
 
 [module/logo2]

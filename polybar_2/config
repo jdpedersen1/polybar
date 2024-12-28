@@ -1,7 +1,12 @@
 [settings]
 
+<<<<<<< HEAD
 include-file = $HOME/.config/polybar/polybar_2/powerline-for-polybar.config
 include-file = $HOME/.config/polybar/polybar_2/theme.ini
+=======
+include-file = $HOME/.config/polybar/power-for-polybar.config
+include-file = $HOME/.config/polybar/theme.ini
+>>>>>>> master
 
 
 [bar/mainbar-herbst]
@@ -25,6 +30,7 @@ padding-right                       = 0
 module-margin-right                 = 0.25
 module-margin-left                  = 0
 
+<<<<<<< HEAD
 font-0                              = FantasqueSansMonoNerdFont:style=Italic:pixelsize=14;3
 font-1                              = unifont:fontformat=truetype:size=12:antialias=false;0
 font-2                              = siji:pixelsize=10;-1
@@ -43,6 +49,26 @@ tray-position                       = center
 tray-padding                        = 7
 tray-detached                       = false
 tray-background                     = ${colors.background}
+=======
+font-0                              = FantasqueSansMono:style=Italic:pixelsize=12;1
+font-1                              = unifont:fontformat=truetype:size=12:antialias=false;0
+font-2                              = siji:pixelsize=10;1
+font-3                              = Font Awesome:style=Regular:pixelsize=10;1
+font-4                              = Font Awesome:style=Solid:pixelsize=9;1
+font-5                              = Font Awesome:pixelsize=8;1
+font-6                              = Font Awesome:style=Regular:pixelsize=10;1
+font-7                              = FantasqueSansMono:style=Bold:size=12
+font-8                              = Font Awesome:style=Solid:pixelsize=10;1
+
+modules-left                        = logo ewmh line-endl xwindow
+modules-center                      = 
+modules-right                       = line-end batt mail ytube date updicon
+
+tray-position                       = right
+tray-padding                        = 7
+tray-detached                       = false
+tray-background                     = #000000
+>>>>>>> master
 
 cursor-click                        = pointer
 cursor-scroll                       = ns-resize
@@ -50,8 +76,12 @@ cursor-scroll                       = ns-resize
 [module/xwindow]
 type                                = internal/xwindow
 label                               = "%title:0:30:...%"
+<<<<<<< HEAD
 label-font                          = 8
 label-foreground                    = ${colors.foreground-alt}
+=======
+label-foreground                    = #5f875f
+>>>>>>> master
 label-background                    = ${colors.background}
 format-prefix                       = "  "
 format-prefix-background            = ${colors.background}
@@ -63,12 +93,20 @@ background                          = ${colors.foreground-alt4}
 background-next                     = #474747
 separator                           = #000000
 type                                = custom/script
+<<<<<<< HEAD
 exec                                = /home/jake/.local/scripts/ytsubs.sh
 interval                            = 3600
 label-background                    = ${colors.foreground-alt4}
 label-foreground                    = #262626
 label                               = "   %output%"
 label-font                          = 8
+=======
+exec                                = ytsubs.sh
+interval                            = 3.0
+label-background                    = ${colors.foreground-alt4}
+label-foreground                    = #262626
+label                               = "  %output%"
+>>>>>>> master
 
 [module/wlan]
 inherit                             = powerline-templates/right-to-left-item-with-separator
@@ -101,21 +139,31 @@ tail = true
 
 [module/date]
 inherit                             = powerline-templates/right-to-left-item-with-separator
+<<<<<<< HEAD
 background                          = #000000
 background-next                     = #000000
+=======
+background                          = #1e1e1e
+background-next                     = #1e1e1e
+>>>>>>> master
 separator                           = #000000
 
 type                                = custom/script
 interval                            = 5
 exec                                = date +" %Y-%m-%d (%I:%M)"
 label                               = "  %output% "
+<<<<<<< HEAD
 label-font                          = 8
 label-background                    = #000000
+=======
+label-background                    = #1e1e1e
+>>>>>>> master
 label-foreground                    = ${colors.foreground-alt}
 click-left                          = scratch Todo
 
 [module/pulseaudio]
 inherit                             = powerline-templates/right-to-left-item-with-separator
+<<<<<<< HEAD
 background                          = ${colors.background-alt}
 background-next                     = #000000
 separator                           = #000000
@@ -127,6 +175,16 @@ format-volume-prefix-background     = ${colors.background-alt}
 format-volume                       = "   <label-volume>"
 label-volume-foreground             = ${colors.foreground}
 label-volume-background             = ${colors.background-alt}
+=======
+background                          = #2a2a2a
+background-next                     = #1e1e1e
+separator                           = #000000
+type                                = internal/pulseaudio
+sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                       = "   <label-volume> "
+label-volume-foreground             = ${colors.foreground}
+label-volume-background             = #2a2a2a
+>>>>>>> master
 label-muted                         = " MUTE "
 label-muted-foreground              = ${colors.foreground-alt3}
 label-muted-background              = #2a2a2a
@@ -150,7 +208,11 @@ background = #474747
 background-next = #2a2a2a
 separator = #000000
 type = custom/script
+<<<<<<< HEAD
 exec = $(cat /sys/class/power_supply/BAT0/capacity)
+=======
+exec = battery
+>>>>>>> master
 interval = 3.0
 label = " %output% "
 label-background = #474747
@@ -161,11 +223,19 @@ background = #474747
 background-next = #2a2a2a
 separator = #000000
 type = custom/script
+<<<<<<< HEAD
 exec = /home/jake/.local/scripts/vol
 interval = 3.0
 label = "   %output% "
 label-background = #474747
 label-font = 8
+=======
+exec = vol
+interval = 3.0
+label = "  %output% "
+label-background = #474747
+
+>>>>>>> master
 
 [settings]
 screenchange-reload = true
@@ -202,6 +272,7 @@ icon-default = 
 format = <label-state>
 label-monitor = %name%
 
+<<<<<<< HEAD
 ;label-active = " %icon% "
 label-active                        = "  "
 label-active-foreground = ${colors.foreground-alt}
@@ -229,6 +300,29 @@ label-empty-foreground = ${colors.foreground}
 label-empty-background = #1e1e1e
 label-empty-padding = 1
 label-empty-font = 8
+=======
+label-active = "[ %icon% ]"
+label-active-foreground = ${colors.foreground-alt4}
+label-active-background = #1e1e1e
+label-active-padding = 2
+label-active-font = 5
+
+label-occupied = " *%icon%*" 
+label-occupied-foreground = ${colors.foreground-alt}
+label-occupied-background = #1e1e1e
+label-occupied-padding = 2
+;label-occupied-font = 5
+
+label-urgent = " %icon%"
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = #1e1e1e
+label-urgent-padding = 2
+
+label-empty = " %icon%"
+label-empty-foreground = ${colors.foreground}
+label-empty-background = #1e1e1e
+label-empty-padding = 2
+>>>>>>> master
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -238,22 +332,33 @@ background = #1e1e1e
 background-next = #000000
 separator = #000000
 type = custom/script
+<<<<<<< HEAD
 exec = sleep 5 && checkupdates | wc -l
+=======
+exec = xbps-install -nuM | wc -l
+>>>>>>> master
 interval = 1000
 label = "   %output% "
 label-foreground = ${colors.foreground}
 label-background = #1e1e1e
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+<<<<<<< HEAD
 click-left = notify-send --expire-time=9000 "$(checkupdates | awk {'print $1'})"
 label-font = 8
+=======
+click-left = notify-send --expire-time=9000 "$(sudo xbps-install -Sun | awk {'print $1'})"
+>>>>>>> master
 
 [module/updicon]
 type = custom/script
 exec = ~/.config/herbstluftwm/updicon.sh
 tail = true
 interval = 10
+<<<<<<< HEAD
 content-font = 8
+=======
+>>>>>>> master
 
 [module/logo]
 inherit            = powerline-templates/left-to-right-item
@@ -261,8 +366,13 @@ background         = #000000
 separator          = #000000
 type               = custom/text
 content-background = #000000
+<<<<<<< HEAD
 content-foreground = ${colors.foreground-alt}
 content            = "  -  rtix - "
+=======
+content-foreground = ${colors.foreground}
+content            = "  -VOID- "
+>>>>>>> master
 content-font       = 8
 click-left         = kitty -T launch.sh -e launch.sh
 
