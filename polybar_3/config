@@ -1,0 +1,371 @@
+[colors]
+background = #1c1c1c
+background-alt = #222222
+foreground = #a2acab
+foreground-alt = #007687
+
+[bar/mainbar-berry]
+;width = 25%
+offset-y = 0
+width = 100%
+height = 24
+radius = 0
+fixed-center = true
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 4
+border-color = ${colors.background}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-right = 1
+module-margin-left = 1
+
+font-0 = Hermit:style=Bold:pixelsize=12;1
+font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome:style=Regular:pixelsize=12;1
+font-4 = Font Awesome:style=Solid:pixelsize=14;1
+font-5 = Font Awesome:pixelsize=8;1
+font-6 = Font Awesome:style=Regular:pixelsize=10;1
+font-7 = RobotoMono:style=Bold:size=10
+font-8 = Font Awesome:style=Solid:pixelsize=10;1
+
+modules-left =  battery pacman-updates pulseaudio
+modules-center = ewmh
+modules-right = wlan date 
+
+;tray-position = right
+;tray-padding = 2
+;tray-background = #0063ff
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-foreground = #528b8b
+format-prefix = "  "
+format-prefix-background =  ${colors.background}
+format-prefix-foreground = ${colors.foreground-alt}
+
+[module/filesystem]
+type = internal/fs
+interval = 3600
+mount-0 = /
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%    
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlo1
+interval = 3.0
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+format-disconnected =
+ramp-signal-font                    = 5
+ramp-signal-0                       = "  "
+ramp-signal-1                       = "  "
+ramp-signal-2                       = "  "
+ramp-signal-3                       = "  "
+ramp-signal-4                       = "  "
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+date = " %Y-%m-%d"
+date-alt = " %Y-%m-%d"
+time = %I:%M
+time-alt = %H:%M:%S
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %date%  ( %time% )
+
+[module/pulseaudio]
+type                                = internal/pulseaudio
+sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume                       = <label-volume>
+format-volume-prefix                = "  "
+format-volume-prefix-foreground     = ${colors.foreground-alt}
+format-volume-prefix-font           = 5
+format-volume-prefix-background     = ${colors.background}
+label-volume                        = " %percentage%% "
+label-volume-foreground             = ${colors.foreground}
+label-volume-background             = ${colors.background}
+format-muted-background             = ${colors.background}
+format-muted-prefix-font            = 5
+label-muted                         = " MUTE "
+label-muted-foreground              = ${colors.foreground-alt}
+label-muted-background              = ${colors.background}
+
+[module/battery]
+type                                = internal/battery
+battery                             = BAT0
+adapter                             = ADP1
+full-at                             = 98
+label-discharging-foreground        = ${colors.foreground}
+label-discharging-background        = ${colors.background}
+label-charging-background           = ${colors.background}
+label-charging-foreground           = ${colors.foreground}
+label-full-background               = ${colors.background}
+label-full-foreground               = ${colors.foreground}
+format-charging                     = <animation-charging><label-charging>
+format-full-background              = ${colors.background}
+format-discharging                  = <animation-discharging><label-discharging>
+format-full-prefix                  = "  "
+format-full-prefix-foreground       = ${colors.foreground-alt}
+format-full-prefix-background       = ${colors.background}
+format-full-prefix-font             = 5
+
+ramp-capacity-0                     = "  " 
+ramp-capacity-1                     = "  "
+ramp-capacity-2                     = "  "
+ramp-capacity-3                     = "  "
+ramp-capacity-4                     = "  "
+ramp-capacity-foreground            = ${colors.foreground-alt}
+ramp-capacity-font                  = 5
+animation-charging-0                = "  "  
+animation-charging-1                = "  "
+animation-charging-2                = "  "
+animation-charging-3                = "  "
+animation-charging-4                = "  "
+animation-charging-font             = 5
+animation-charging-foreground       = ${colors.foreground-alt}
+animation-charging-background       = ${colors.background}
+animation-charging-framerate        = 750
+animation-discharging-4             = "  " 
+animation-discharging-3             = "  "
+animation-discharging-2             = "  "
+animation-discharging-1             = "  "
+animation-discharging-0             = "  "
+animation-discharging-foreground    = ${colors.foreground-alt}
+animation-discharging-background    = ${colors.background}
+animation-discharging-font          = 5
+animation-discharging-framerate     = 750
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-default = 
+format = <label-state>
+label-monitor = %name%
+
+label-active = 
+label-active-foreground = #007687
+label-active-background = ${colors.background}
+label-active-padding = 3
+label-active-font = 5
+
+label-occupied =  
+label-occupied-foreground = ${colors.foreground}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 3
+;label-occupied-font = 5
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.foreground}
+label-urgent-padding = 3
+
+label-empty = 
+label-empty-foreground = ${colors.foreground}
+label-empty-background = ${colors.background}
+label-empty-padding = 3
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 2
+label-separator-foreground = #ffb52a
+
+[module/pacman-updates]
+type = custom/script
+;exec = pacman -Qu | wc -l
+exec = xbps-install -nuM | wc -l
+interval = 1000
+label = " Repo: %output% "
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-font = 5
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+;
